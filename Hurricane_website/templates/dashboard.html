@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Hurricane Dashboard</h1>
+        <nav>
+            <button id="home-button">Home</button>
+            <button id="predictions-button">Predictions</button>
+            <button id="settings-button">Settings</button>
+        </nav>
+    </header>
+    <main>
+        <div id="content">
+            <div class="chart-container">
+                <canvas id="bar-chart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="scatter-plot"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="line-chart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="storm-speed-dir-chart"></canvas>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Hurricane Prediction Youssef Abouattalla. All rights reserved.</p>
+    </footer>
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Settings</h2>
+            <form id="settings-form">
+                <label for="theme">Theme:</label>
+                <select id="theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+                <br>
+                <label for="refresh-rate">Data Refresh Rate (seconds):</label>
+                <input type="number" id="refresh-rate" value="60">
+                <br>
+                <button type="submit">Save</button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
